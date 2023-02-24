@@ -35,7 +35,7 @@ export const Login = () => {
     <div className="flex justify-center items-center w-screen h-screen">
       <div className="flex flex-col items-center p-12 px-24 bg-[#ffffffb9] rounded-md w-[575px]">
         <h1 className="mb-14 text-5xl font-extrabold text-center">Login</h1>
-        <form className="flex flex-col mb-8" onSubmit={handleLogin}>
+        <form className="flex flex-col mb-8" onSubmit={(e) => null}>
           <label htmlFor="email" className="flex items-center mb-6">
             <p className="w-24">Email:</p>
             <input
