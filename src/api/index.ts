@@ -9,6 +9,10 @@ import User from "./models/user";
 const APIKey = process.env.ASSEMBLYAI_API_KEY;
 
 const app = express();
+const urlencodedParser = express.urlencoded({ extended: false });
+app.use(express.json(), urlencodedParser);
+// app.use(cors({ origin: "http://localhost:5173/", credentials: false }));
+app.use(cors({ origin: "*", credentials: false }));
 
 // Regiseter a new user
 app.post("/api/register", async (req, res) => {
@@ -165,6 +169,7 @@ app.get("/api/getRecords", verifyJWT, async (req, res) => {
     records: records,
   });
 });
+
 // DELETE RECORD
 app.post("/api/deleteRecord", verifyJWT, async (req, res) => {
   await dbConnect().catch((err) =>
